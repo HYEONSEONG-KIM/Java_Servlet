@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * 
  */
 
-// Servlet의 LiflCycle예제
+// Servlet의 LifeCycle예제
 @WebServlet("/servletTest03.do")
 public class ServletTest03 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
