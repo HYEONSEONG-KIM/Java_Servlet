@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Session 연습</title>
+<!-- 
+	JSP문서에서는 'session'이라는 이름으로 
+ -->
 </head>
 <body>
 	<a href = "<%=request.getContextPath()%>/SessionAddServlet.do">Session정보 저장하기</a><br><br>
