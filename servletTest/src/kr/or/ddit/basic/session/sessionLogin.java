@@ -27,8 +27,8 @@ public class sessionLogin extends HttpServlet {
 		
 		session.setAttribute("id", id);
 		if(id.equals("admin") && pass.equals("1234")) {
-			response.sendRedirect(request.getContextPath() + "/basic/04/sessionLogin.jsp");
 			session.setAttribute("state", "ok");
+			response.sendRedirect(request.getContextPath() + "/basic/04/sessionLogin.jsp");
 		}else {
 			response.sendRedirect(request.getContextPath() + "/basic/04/sessionLogin.jsp");
 		}
