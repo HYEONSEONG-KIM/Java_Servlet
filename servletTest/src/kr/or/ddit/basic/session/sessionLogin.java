@@ -1,6 +1,8 @@
 package kr.or.ddit.basic.session;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,29 +18,46 @@ public class sessionLogin extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; cahrset=utf-8");
+		RequestDispatcher rd = 
+				request.getRequestDispatcher("/basic/04/sessionLogin.jsp");
+		rd.forward(request, response);
+//		response.setCharacterEncoding("UTF-8");
+//		response.setContentType("text/html; cahrset=utf-8");
 		
-		HttpSession session = request.getSession();
+//		HttpSession session = request.getSession();
 		
 		
-		String id = request.getParameter("id");
-		String pass = request.getParameter("pass");
+//		String id = request.getParameter("id");
+//		String pass = request.getParameter("pass");
 		
-		session.setAttribute("id", id);
-		if(id.equals("admin") && pass.equals("1234")) {
-			session.setAttribute("state", "ok");
-			response.sendRedirect(request.getContextPath() + "/basic/04/sessionLogin.jsp");
-		}else {
-			response.sendRedirect(request.getContextPath() + "/basic/04/sessionLogin.jsp");
-		}
+//		session.setAttribute("id", id);
+//		if(id.equals("admin") && pass.equals("1234")) {
+//			session.setAttribute("state", "ok");
+//			response.sendRedirect(request.getContextPath() + "/basic/04/sessionLogin.jsp");
+//		}else {
+//			response.sendRedirect(request.getContextPath() + "/basic/04/sessionLogin.jsp");
+//		}
 		
 		
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		
+		
+		if(id.equals("admin") && pass.equals("1234")) {
+			HttpSession session = request.getSession();
+			session.setAttribute("id", id);
+//			session.setAttribute("state", "ok");
+		}
+		RequestDispatcher rd = 
+				request.getRequestDispatcher("/basic/04/sessionLogin.jsp");
+		rd.forward(request, response);
+		
 	}
 
 }

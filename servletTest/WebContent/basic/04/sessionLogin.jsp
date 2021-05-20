@@ -8,17 +8,17 @@
 </head>
 <body>
 <%
-	HttpSession sessions = request.getSession();
-	String id = (String)sessions.getAttribute("id");
-	if(id == null){
+	
+	String id = (String)session.getAttribute("id");
+/* 	if(id == null){
 		id = "";
 	}
+	 */
+	String state = (String)session.getAttribute("state");
 	
-	String state = (String)sessions.getAttribute("state");
-	
-	if(state == null){
+	if(id == null){
 %>
-	<form action="/servletTest/sessionLogin.do">
+	<form method = "post" action="/servletTest/sessionLogin.do">
 		<table border = "1">
 			<tr>
 				<td>ID :</td>
@@ -42,7 +42,7 @@
 		</table>
 	</form>
 	
-<%}else if(state.equals("ok")){
+<%}else{
 %>
 	<h2><%=id %>님 환영합니다</h2>
 	<a href = "/servletTest/sessionLogout.do">로그아웃</a>
