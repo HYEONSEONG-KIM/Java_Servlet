@@ -24,4 +24,4 @@
 - [DeleteSession](https://github.com/HYEONSEONG-KIM/Java_Servlet/blob/main/servletTest/src/kr/or/ddit/basic/session/SessionDeleteServlet.java)
 
 ## JSON
--[JavaData to JSON](https://github.com/HYEONSEONG-KIM/Java_Servlet/blob/main/servletTest/src/kr/or/ddit/basic/json/JsonTestServlet.java)
+- [JavaData to JSON](https://github.com/HYEONSEONG-KIM/Java_Servlet/blob/main/servletTest/src/kr/or/ddit/basic/json/JsonTestServlet.java)
