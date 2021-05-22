@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0/EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace = "member">
+	<typeAlias alias="memberVo" type="kr.or.ddit.vo.MemberVO"/>
+	
+	<select id="selectMember" resultClass="memberVo">
+		select * from servlet_member
+	</select>
+	
+	<select id="checkId" resultClass="string" parameterClass="string">
+		select mem_id from servlet_member where mem_id = #id#
+	</select>
+	
+	<insert id="insertMember">
+		insert into servlet_member values
+		(#mem_id#, #mem_pass#,#mem_name#,#mem_ph#,#mem_addr#)
+		
+		<selectKey resultClass="string">
+			select mem_id from servlet_member where mem_id = #mem_id#
+		</selectKey>
+	</insert>
+
+</sqlMap>
