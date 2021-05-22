@@ -39,7 +39,7 @@
 			for(MemberVO vo : memList){
 %>			
 			<tr>
-				<td><%=vo.getMem_id()%></td>
+				<td><a href = ""><%=vo.getMem_id()%></a></td>
 				<td><%=vo.getMem_pass() %></td>
 				<td><%=vo.getMem_name() %></td>
 				<td><%=vo.getMem_ph() %></td>

@@ -13,7 +13,7 @@ public interface IMemberDao {
 	
 	public String checkId(String id) throws SQLException;
 	
-	public String insertMembeer(MemberVO memVo) throws SQLException;
+	public String insertMember(MemberVO memVo) throws SQLException;
 	
 	public int updateMember(MemberVO memVo) throws SQLException;
 	

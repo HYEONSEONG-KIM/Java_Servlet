@@ -17,7 +17,7 @@
 		insert into servlet_member values
 		(#mem_id#, #mem_pass#,#mem_name#,#mem_ph#,#mem_addr#)
 		
-		<selectKey resultClass="string">
+		<selectKey keyProperty="mem_id" resultClass="string">
 			select mem_id from servlet_member where mem_id = #mem_id#
 		</selectKey>
 	</insert>

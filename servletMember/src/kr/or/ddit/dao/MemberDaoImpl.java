@@ -32,9 +32,8 @@ public class MemberDaoImpl implements IMemberDao{
 	}
 
 	@Override
-	public String insertMembeer(MemberVO memVo) {
-		// TODO Auto-generated method stub
-		return null;
+	public String insertMember(MemberVO memVo) throws SQLException {
+		return (String)smc.insert("member.insertMember", memVo);
 	}
 
 	@Override

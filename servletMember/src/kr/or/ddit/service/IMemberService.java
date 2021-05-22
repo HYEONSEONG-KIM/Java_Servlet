@@ -7,7 +7,7 @@ import kr.or.ddit.vo.MemberVO;
 public interface IMemberService {
 public List<MemberVO> selectMember();
 	
-	public String insertMembeer(MemberVO memVo);
+	public String insertMember(MemberVO memVo);
 	
 	public String checkId(String id);
 	

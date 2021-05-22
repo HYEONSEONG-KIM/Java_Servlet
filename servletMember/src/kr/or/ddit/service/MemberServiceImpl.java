@@ -40,9 +40,15 @@ public class MemberServiceImpl implements IMemberService {
 	}
 
 	@Override
-	public String insertMembeer(MemberVO memVo) {
-		// TODO Auto-generated method stub
-		return null;
+	public String insertMember(MemberVO memVo) {
+		String id = null;
+		try {
+			id = dao.insertMember(memVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return id;
 	}
 
 	@Override

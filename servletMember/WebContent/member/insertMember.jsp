@@ -5,12 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%
+	String result = "";
+	result = (String)request.getAttribute("result");
+
+%>
 <script type="text/javascript" src = "<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"></script>
 <script>
 	$(function(){
 		
 		$('#check').on('click', function(){
-			id = $('#id').val();
+			id = $('#id').val().trim();
+			if(id.length < 1){
+				alert("ID를 입력하세요");
+				return false;
+			}
 						
 			$.ajax({
 				url : '<%=request.getContextPath()%>/MemberIdCheck.do',
@@ -30,12 +39,27 @@
 			})
 			
 		})
-		
+		<%if(result == null){
+		%>
+			res = "";
+			$('#result').html(res);
+			
+		<%	
+		}else if(result.equals("no")){
+		%>
+			res = "회원가입 실패...";
+			$('#result').html(res);
+		<%}else if(result.equals("ok")){
+		%>	
+			res = "회원가입 성공!!";
+			$('#result').html(res);
+		<%}%>
 	})
 	
 </script>
 </head>
 <body>
+
 <form action="<%=request.getContextPath()%>/MemberInsrtServlet.do">
 	<table border = 1>
 		<tr>
@@ -53,7 +77,7 @@
 		
 		<tr>
 			<td>비밀번호 확인</td>
-			<td><input id = "passcheck" type = "password"></td>
+			<td><input name = "passcheck" id = "passcheck" type = "password"></td>
 		</tr>
 		
 		<tr>
@@ -75,10 +99,13 @@
 			<td colspan="5">
 			<input type = "submit" value = "저장">
 			<input type = "reset" value = "취소">
-			<input type = "button" value = "회원목록" onClick = "location.href='memberSelect.jsp'">
+			<a href = "memberSelect.jsp">이전화면</a>
+			
 			</td>
 		</tr>
 	</table>
 </form>	
+
+<span id = "result"></span>
 </body>
 </html>
