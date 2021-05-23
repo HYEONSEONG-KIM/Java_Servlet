@@ -8,47 +8,47 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.or.ddit.service.IMemberService;
 import kr.or.ddit.service.MemberServiceImpl;
 import kr.or.ddit.vo.MemberVO;
+import sun.security.util.Length;
 
 
-@WebServlet("/MemberInsrtServlet.do")
-public class MemberInsrtServlet extends HttpServlet {
+@WebServlet("/MemberSelectOneServlet.do")
+public class MemberSelectOneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
-	private IMemberService service= null;
-	
-    public MemberInsrtServlet() {
+      
+	private IMemberService service = null;
+    
+    public MemberSelectOneServlet() {
     	service = MemberServiceImpl.getInstance();
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		
-		String result = null;
+		String id = request.getParameter("memId");
 		
-		MemberVO memvo = new MemberVO();
-		memvo.setMem_id(request.getParameter("mem_id"));
-		memvo.setMem_name(request.getParameter("mem_name"));
-		memvo.setMem_pass(request.getParameter("mem_pass"));
-		memvo.setMem_ph(request.getParameter("mem_ph"));
-		memvo.setMem_addr(request.getParameter("mem_addr"));
 		
-		result = service.insertMember(memvo);
+		MemberVO memVo = service.selecetOne(id);
+		request.setAttribute("selectOne", memVo);
 		
-		if(result == null) {
-			result = "no";
-		}else {
-			result = "ok";
-		}
+		HttpSession session = request.getSession();
 		
-		request.setAttribute("result", result);
-		RequestDispatcher rd = request.getRequestDispatcher("/member/memberSelect.jsp");
+		session.setAttribute("id", memVo.getMem_id());
+		session.setAttribute("pass", memVo.getMem_pass());
+		session.setAttribute("name", memVo.getMem_name());
+		session.setAttribute("ph", memVo.getMem_ph());
+		session.setAttribute("addr", memVo.getMem_addr());
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/member/selectOne.jsp");
 		rd.forward(request, response);
+		
 		
 		
 	}

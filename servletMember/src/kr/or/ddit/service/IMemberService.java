@@ -14,4 +14,6 @@ public List<MemberVO> selectMember();
 	public int updateMember(MemberVO memVo);
 	
 	public int deleteMember(String memId);
+	
+	public MemberVO selecetOne(String memId);
 }

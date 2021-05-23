@@ -53,14 +53,30 @@ public class MemberServiceImpl implements IMemberService {
 
 	@Override
 	public int updateMember(MemberVO memVo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		
+		try {
+			result = dao.updateMember(memVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	@Override
 	public int deleteMember(String memId) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		
+		try {
+			result = dao.deleteMember(memId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	@Override
@@ -74,6 +90,19 @@ public class MemberServiceImpl implements IMemberService {
 			e.printStackTrace();
 		}
 		return memId;
+	}
+
+	@Override
+	public MemberVO selecetOne(String memId) {
+		
+		MemberVO memVo = null; 
+		try {
+			memVo = dao.selecetOne(memId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return memVo;
 	}
 
 }

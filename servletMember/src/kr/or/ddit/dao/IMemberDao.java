@@ -18,4 +18,6 @@ public interface IMemberDao {
 	public int updateMember(MemberVO memVo) throws SQLException;
 	
 	public int deleteMember(String memId) throws SQLException;
+	
+	public MemberVO selecetOne(String memId) throws SQLException;
 }

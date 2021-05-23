@@ -10,6 +10,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+location.href = "<%=request.getContextPath()%>/MemberSelectServlet.do";
+
+</script>
 </head>
 <body>
 <%
@@ -39,7 +43,8 @@
 			for(MemberVO vo : memList){
 %>			
 			<tr>
-				<td><a href = ""><%=vo.getMem_id()%></a></td>
+				<td><a href = "<%=request.getContextPath()%>/MemberSelectOneServlet.do?memId=<%=vo.getMem_id()%>">
+				<%=vo.getMem_id()%></a></td>
 				<td><%=vo.getMem_pass() %></td>
 				<td><%=vo.getMem_name() %></td>
 				<td><%=vo.getMem_ph() %></td>

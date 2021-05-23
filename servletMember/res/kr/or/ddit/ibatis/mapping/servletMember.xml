@@ -21,5 +21,30 @@
 			select mem_id from servlet_member where mem_id = #mem_id#
 		</selectKey>
 	</insert>
+	
+	<select id="selectOne" resultClass="memberVo" parameterClass="string">
+		select * from servlet_member where mem_id = #id#
+	</select>
 
+	<update id="updateMember" parameterClass="memberVo">
+		update servlet_member set mem_pass = #mem_pass#, mem_name = #mem_name#,
+		mem_ph = #mem_ph#, mem_addr = #mem_addr# where mem_id = #mem_id#
+	</update>
+	
+	<delete id="deleteMember" parameterClass="string">
+		delete from servlet_member where mem_id = #id#
+	</delete>
+	
 </sqlMap>
+
+
+
+
+
+
+
+
+
+
+
+

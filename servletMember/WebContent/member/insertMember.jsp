@@ -5,11 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%
-	String result = "";
-	result = (String)request.getAttribute("result");
 
-%>
 <script type="text/javascript" src = "<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"></script>
 <script>
 	$(function(){
@@ -39,21 +35,7 @@
 			})
 			
 		})
-		<%if(result == null){
-		%>
-			res = "";
-			$('#result').html(res);
-			
-		<%	
-		}else if(result.equals("no")){
-		%>
-			res = "회원가입 실패...";
-			$('#result').html(res);
-		<%}else if(result.equals("ok")){
-		%>	
-			res = "회원가입 성공!!";
-			$('#result').html(res);
-		<%}%>
+	
 	})
 	
 </script>
@@ -99,7 +81,7 @@
 			<td colspan="5">
 			<input type = "submit" value = "저장">
 			<input type = "reset" value = "취소">
-			<a href = "memberSelect.jsp">이전화면</a>
+			<input type = "button" value = "이전화면" onClick = "location.href='memberSelect.jsp'">
 			
 			</td>
 		</tr>

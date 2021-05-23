@@ -37,20 +37,23 @@ public class MemberDaoImpl implements IMemberDao{
 	}
 
 	@Override
-	public int updateMember(MemberVO memVo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateMember(MemberVO memVo) throws SQLException {
+		return smc.delete("member.updateMember", memVo);
 	}
 
 	@Override
-	public int deleteMember(String memId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteMember(String memId) throws SQLException {
+		return smc.delete("member.deleteMember", memId);
 	}
 
 	@Override
 	public String checkId(String id) throws SQLException {
 		return (String) smc.queryForObject("member.checkId",id);
+	}
+
+	@Override
+	public MemberVO selecetOne(String memId) throws SQLException {
+		return (MemberVO) smc.queryForObject("member.selectOne", memId);
 	}
 
 }
