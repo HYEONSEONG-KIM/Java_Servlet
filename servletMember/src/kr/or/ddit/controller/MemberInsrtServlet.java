@@ -47,7 +47,7 @@ public class MemberInsrtServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("result", result);
-		RequestDispatcher rd = request.getRequestDispatcher("/member/memberSelect.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/member/index.jsp");
 		rd.forward(request, response);
 		
 		

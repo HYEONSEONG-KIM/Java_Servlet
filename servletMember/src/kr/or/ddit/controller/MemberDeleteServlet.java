@@ -39,7 +39,7 @@ public class MemberDeleteServlet extends HttpServlet {
 		
 		session.invalidate();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/member/memberSelect.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/member/index.jsp");
 		rd.forward(request, response);
 	}
 

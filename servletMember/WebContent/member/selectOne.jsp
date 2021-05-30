@@ -42,7 +42,7 @@
 				<td colspan="2">
 					<input type = "button" value = "수정" onClick ="location.href='member/updateMember.jsp'">
 					<input type = "submit" value = "삭제" >
-					<input type = "button" value = "회원목록" onClick = "location.href='member/memberSelect.jsp'">
+					<input type = "button" value = "회원목록" onClick = "location.href='member/index.jsp'">
 				</td>
 			</tr>
 		</table>

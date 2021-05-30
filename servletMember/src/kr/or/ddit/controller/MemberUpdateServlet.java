@@ -36,7 +36,6 @@ public class MemberUpdateServlet extends HttpServlet {
 		memVo.setMem_ph(request.getParameter("mem_ph"));
 		memVo.setMem_addr(request.getParameter("mem_addr"));
 		
-		System.out.println(memVo.getMem_name());
 		
 		int result = service.updateMember(memVo);
 	

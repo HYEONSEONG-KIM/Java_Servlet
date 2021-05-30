@@ -41,7 +41,7 @@
 			<td colspan="5">
 			<input type = "submit" value = "저장">
 			<input type = "reset" value = "취소">
-			<input type = "button" value = "회원목록" onClick = "location.href='memberSelect.jsp'">
+			<input type = "button" value = "회원목록" onClick = "location.href='index.jsp'">
 			
 			</td>
 		</tr>
